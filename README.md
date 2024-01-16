@@ -35,8 +35,8 @@ The API we want you to connect to is https://quotes.rest/
 * Use composition API and setup script for Vue components
 
 ## Developer
-Name: `<your name>` <br/>
-Email: `<your email>`<br/>
+Name: Brandon Vera <br/>
+Email: vera.950b@gmail.com <br/>
 
 ## Instructions
 ### DO NOT START A NEW LARAVEL APP, USE THIS BOILERPLATE INSTEAD !!
