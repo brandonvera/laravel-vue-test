@@ -32,14 +32,20 @@ class AuthController extends Controller
         }
 
         $user = Auth::user();
+
+        if($user->status == 0){
+            Auth::logout();
+            return response()->json('Unauthorized, user blocked!', 401);
+        }
+
         return response()->json([
-                'status' => 'success',
-                'user' => $user,
-                'authorization' => [
-                    'token' => $token,
-                    'type' => 'bearer',
-                ]
-            ]);
+            'status' => 'success',
+            'user' => $user,
+            'authorization' => [
+                'token' => $token,
+                'type' => 'bearer',
+            ]
+        ]);
 
     }
 
@@ -54,6 +60,8 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'status' => 1,
+            'role' => 0
         ]);
 
         $token = Auth::login($user);
