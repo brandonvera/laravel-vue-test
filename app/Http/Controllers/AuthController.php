@@ -35,7 +35,10 @@ class AuthController extends Controller
 
         if($user->status == 0){
             Auth::logout();
-            return response()->json('Unauthorized, user blocked!', 401);
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Unauthorized, user blocked!',
+            ], 401);
         }
 
         return response()->json([
