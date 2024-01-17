@@ -22,7 +22,7 @@ class UserController extends Controller
             $user->name = $request->name;
             $user->update();
             
-            return response()->json('update completed', 200);
+            return response()->json(['message' => 'update completed'], 200);
         } catch (Exception $e) {
             return response()->json(['message' => $e], 400);
         }
@@ -34,13 +34,13 @@ class UserController extends Controller
             $u = Auth::user();
 
             if($u->role != 1){
-                return response()->json('Unauthorized', 401);
+                return response()->json(['message' => 'Unauthorized'], 401);
             }
 
             $user = User::findOrFail($request->user_id);
             $user->status = $request->status;
             $user->update();
-            return response()->json('User status changed!', 200);
+            return response()->json(['message' => 'User status changed!'], 200);
         } catch (Exception $e) {
             return response()->json(['message' => $e], 400);
         }
