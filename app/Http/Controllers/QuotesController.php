@@ -27,7 +27,7 @@ class QuotesController extends Controller
             $quote->user_id = $request->user_id;
             $quote->save();
             
-            return response()->json('Quote saved!', 201);
+            return response()->json(['message' => 'Quote saved!'], 201);
         } catch (Exception $e) {
             return response()->json($e, 400);
         }
