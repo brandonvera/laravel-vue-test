@@ -22,6 +22,7 @@ class ApiQuotesConnectionController extends Controller
                 'headers' => [
                     'Authorization' => 'Bearer '. env('QUOTE_API_KEY'),
                 ],
+                'limit' => 5,
             ],
         );
         $data = json_decode($response->getBody(), true);
@@ -29,7 +30,7 @@ class ApiQuotesConnectionController extends Controller
         return $quotes;
     }
 
-    public function randomQuotesByKayneWest(Request $request)
+    public function randomQuotesByKayneWest($limit)
     {
         $response = $this->client->get(
             'https://quotes.rest/quote/search',
@@ -37,7 +38,7 @@ class ApiQuotesConnectionController extends Controller
                 'headers' => [
                     'Authorization' => 'Bearer '. env('QUOTE_API_KEY'),
                 ],
-                'limit' => $request->limit,
+                'limit' => $limit,
                 'author' => 'Kayne West',
             ],
         );
@@ -46,8 +47,8 @@ class ApiQuotesConnectionController extends Controller
         return $quotes;
     }
 
-    public function refreshQuotes(Request $request)
+    public function refreshQuotes()
     {
-        return $this->fiveRandomQuotes($request);
+        return $this->fiveRandomQuotes();
     }
 }

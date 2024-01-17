@@ -29,7 +29,7 @@ Route::middleware('auth:api')->group(function () {
     Route::middleware('throttle:30,1')->group(function () {
         Route::controller(ApiQuotesConnectionController::class)->group(function () {
             Route::get('random-quotes', 'fiveRandomQuotes');
-            Route::get('quotes-by-kayne-west', 'randomQuotesByKayneWest');
+            Route::get('quotes-by-kayne-west/{limit}', 'randomQuotesByKayneWest');
             Route::get('refresh-quotes', 'refreshQuotes');
         });
     });
