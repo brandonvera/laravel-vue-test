@@ -3,11 +3,11 @@
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col col-xl-8">
           <h3>Favorites Quotes</h3>
-          <div class="card">
+          <div class="card mt-2" v-for="quote in quotes" :key="quote.id" >
             <div class="card-body py-5">
               <div class="row d-flex justify-content-center">
                 <div class="col-md-8 col-lg-9 col-xl-8">
-                  <div v-for="quote in quotes" :key="quote.id" class="d-flex">
+                  <div class="d-flex">
                     <div class="flex-grow-1 ms-4 ps-3">
                       <figure>
                         <blockquote class="blockquote mb-4">
