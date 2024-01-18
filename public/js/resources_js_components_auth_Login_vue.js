@@ -42,21 +42,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case 3:
               response = _context.sent;
               localStorage.setItem('token', response.data.authorization.token);
+              localStorage.setItem('id', response.data.user.id);
               router.push({
                 name: 'randomQuotes'
               });
-              _context.next = 12;
+              _context.next = 13;
               break;
-            case 8:
-              _context.prev = 8;
+            case 9:
+              _context.prev = 9;
               _context.t0 = _context["catch"](0);
               console.error(_context.t0);
               _context.t0.value = 'Invalid email or password';
-            case 12:
+            case 13:
             case "end":
               return _context.stop();
           }
-        }, _callee, null, [[0, 8]]);
+        }, _callee, null, [[0, 9]]);
       }));
       return function login() {
         return _ref.apply(this, arguments);

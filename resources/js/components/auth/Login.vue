@@ -64,6 +64,7 @@
         try {
           const response = await axios.post('http://localhost:80/api/login', form);
           localStorage.setItem('token', response.data.authorization.token);
+          localStorage.setItem('id', response.data.user.id);
           router.push({ name: 'randomQuotes' });
         } catch (error) {
           console.error(error);
